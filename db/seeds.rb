@@ -26,29 +26,7 @@ opium = Venue.create(
     rating: "4"
 )
 
-gr_post1 = Post.create(
-    title: "I WENT TO GOLD ROOM",
-    event: "Gold Room Fridays",
-    description: "Ladies, if you wear a simple and stylish dress with some nice shoes I'm SURE you will get in with no problems. Most of the guys in our group had on jeans with dressy shoes and blazers, but some of the other guys there had on regular shirts, jeans and nice sneakers. ",
-    image_url: "https://i.imgur.com/jCW37iv.jpg",
-    rating: "5"
-)
 
-flipflops_post1 = Post.create(
-    title: "flip flops",
-    event: "just a saturday night",
-    description: "So, I went in with little to no expectations because the bar's name is literally flip flops. Seems like all the guys just casual with T-shirts and jeans or button-ups and slacks. All the girls were wearing fitting dresses or some jeans and a decent top. All in all it was pretty relaxed, however, I did see one guy get denied because his jeans were too baggy.",
-    image_url: "https://i.imgur.com/uR2t5vG.jpg",
-    rating: "4"
-)
-
-opium_post1 = Post.create(
-    title: "first time since it was Prive",
-    event: "112 live show",
-    description: "Basically everyone showed up dressed to impress so I couldn't tell you what the normal dress code would be.",
-    image_url: "",
-    rating: "1"
-)
 
 monica = User.create(
     name: "Monica",
@@ -66,4 +44,34 @@ trevor = User.create(
     name: "Trevor",
     image_url: " ",
     rating: "1"
+)
+
+gr_post1 = Post.create(
+    title: "I WENT TO GOLD ROOM",
+    event: "Gold Room Fridays",
+    description: "Ladies, if you wear a simple and stylish dress with some nice shoes I'm SURE you will get in with no problems. Most of the guys in our group had on jeans with dressy shoes and blazers, but some of the other guys there had on regular shirts, jeans and nice sneakers. ",
+    image_url: "https://i.imgur.com/jCW37iv.jpg",
+    rating: "5",
+    user: monica,
+    venue: goldroom
+)
+
+flipflops_post1 = Post.create(
+    title: "flip flops",
+    event: "just a saturday night",
+    description: "So, I went in with little to no expectations because the bar's name is literally flip flops. Seems like all the guys just casual with T-shirts and jeans or button-ups and slacks. All the girls were wearing fitting dresses or some jeans and a decent top. All in all it was pretty relaxed, however, I did see one guy get denied because his jeans were too baggy.",
+    image_url: "https://i.imgur.com/uR2t5vG.jpg",
+    rating: "4"
+    user: chad,
+    venue: flipflops
+)
+
+opium_post1 = Post.create(
+    title: "first time since it was Prive",
+    event: "112 live show",
+    description: "Basically everyone showed up dressed to impress so I couldn't tell you what the normal dress code would be.",
+    image_url: "",
+    rating: "1"
+    user: trevor,
+    venue: opium
 )

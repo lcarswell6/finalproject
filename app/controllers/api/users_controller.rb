@@ -11,7 +11,11 @@ class Api::UsersController < ApplicationController
     
     def show
         @user = User.find(params[:id])
-        render json: @user
+        @posts = @user.posts
+        render json: {
+            user: @user,
+            posts: @posts
+    }
     end
 
     def update
