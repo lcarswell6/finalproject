@@ -61,7 +61,7 @@ flipflops_post1 = Post.create(
     event: "just a saturday night",
     description: "So, I went in with little to no expectations because the bar's name is literally flip flops. Seems like all the guys just casual with T-shirts and jeans or button-ups and slacks. All the girls were wearing fitting dresses or some jeans and a decent top. All in all it was pretty relaxed, however, I did see one guy get denied because his jeans were too baggy.",
     image_url: "https://i.imgur.com/uR2t5vG.jpg",
-    rating: "4"
+    rating: "4",
     user: chad,
     venue: flipflops
 )
@@ -71,7 +71,7 @@ opium_post1 = Post.create(
     event: "112 live show",
     description: "Basically everyone showed up dressed to impress so I couldn't tell you what the normal dress code would be.",
     image_url: "",
-    rating: "1"
+    rating: "1",
     user: trevor,
     venue: opium
 )

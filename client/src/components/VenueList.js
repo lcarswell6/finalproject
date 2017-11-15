@@ -9,7 +9,7 @@ const VenueList = (props) => {
                 props.venue.map((venue) => {
                     return (
                         <div>
-                            <Link to={`venues/${venue.id}`}>{venue.name}</Link>
+                            <Link to={`/venues/${venue.id}`}>{venue.name}</Link>
                         </div>
                     )
                 })

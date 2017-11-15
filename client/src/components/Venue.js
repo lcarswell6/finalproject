@@ -4,7 +4,7 @@ import VenueList from './VenueList'
 
 class Venue extends Component {
     state = {
-        venue: [], 
+        venue: [],
         posts: []
     }
     componentWillMount() {

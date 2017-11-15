@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 const PostList = (props) => {
-    return(
+const getPost =
+<div>
+    <h1>Venue Posts</h1>
+    {
+        props.post.map((post) => {
+            return (
+                <div>
+                    <Link to={`venues/${venue.id}/posts/${post.id}`}>{post.title}</Link>
+                </div>
+            )
+        })
+    }
+
+</div>
+    return (
         <div>
-            <h1>Posts</h1>
-            {
-                props.songs.map((song)=> {
-                    return (
-                        <div>
-                            <h2>{post.title}</h2>
-                        </div>
-                    )
-                })
-            }
-        </div>
-    )
+          {getPost}      
+            </div>
+        );
 }
+
+
+export default PostList;

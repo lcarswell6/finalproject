@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 const UserList = (props) => {
-    const forFun =
+    const showAllUsers =
         <div>
             <h1>All Users</h1>
             {
@@ -17,7 +17,7 @@ const UserList = (props) => {
         </div>
     return (
         <div>
-            {forFun}
+            {showAllUsers}
         </div>
     )
 }
