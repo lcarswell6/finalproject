@@ -19,8 +19,8 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
-        @user.update!(user_params)
+        @user = User.find_by_id(params[:id])
+        @user.update_attributes(user_params)
         render json: @user
     end
 
@@ -32,6 +32,6 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :image_url, :user_rating)
+        params.require(:user).permit(:name, :image_url, :rating)
     end
 end
