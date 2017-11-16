@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import VenueList from './VenueList'
+import styled from 'styled-components'
 
+const venueListContainer = styled.div`
+display: flex;
+background: black;
+color: white;
+`
 class Venue extends Component {
     state = {
         venue: [],

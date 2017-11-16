@@ -10,7 +10,7 @@ class Api::VenuesController < ApplicationController
     end
 
     def show
-        @venue = Venue.find(params[:id])
+        @venue = Venue.find_by_id(params[:id])
         render json: @venue
     end
 

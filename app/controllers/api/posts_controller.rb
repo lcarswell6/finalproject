@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
     def index
-        @posts = Venue.find(params[:venue_id]).posts
+        @posts = Venue.find(params[:venue_id]).posts.all
         render json: @posts
     end
 

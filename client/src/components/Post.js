@@ -4,13 +4,14 @@ import PostList from './PostList'
 
 class Post extends Component {
     state = {
-        posts: []
+        post: {}
     }
     componentWillMount() {
         this.getAllPosts()
     }
     getAllPosts = async () => {
-        const response = await axios.get(`/api/venues/:id/posts`)
+        const { venue_id, id} = this.props.match.params
+        const response = await axios.get(`/api/venues/${venue_id}/posts/${id}`)
         console.log(response.data)
         this.setState({ post: response.data })
     }
@@ -18,7 +19,7 @@ class Post extends Component {
     render() {
         return (
             <div>
-                <PostList post={this.state.post} />
+                {this.state.post.title}
             </div>
         );
     }
