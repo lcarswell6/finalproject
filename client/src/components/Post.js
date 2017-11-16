@@ -10,7 +10,7 @@ class Post extends Component {
         this.getAllPosts()
     }
     getAllPosts = async () => {
-        const { venue_id, id} = this.props.match.params
+        const { venue_id, id } = this.props.match.params
         const response = await axios.get(`/api/venues/${venue_id}/posts/${id}`)
         console.log(response.data)
         this.setState({ post: response.data })
@@ -19,7 +19,15 @@ class Post extends Component {
     render() {
         return (
             <div>
-                {this.state.post.title}
+                <h3>
+                    {this.state.post.title}
+                </h3>
+                <h4>
+                    Event: {this.state.post.event}
+                </h4>
+                <div>
+                    {this.state.post.description}
+                </div>
             </div>
         );
     }
