@@ -5,16 +5,21 @@ import UpdateUserForm from './UpdateUserForm'
 import { Redirect } from 'react-router-dom'
 
 const Content = styled.div`
+height: 100vh;
+width: 100%;
 border: 1px solid green;
 margin-top:75px;
+background-color: #eff4f9;
+
 `
 const UserInfo = styled.div`
 display: flex;
 height: 250px;
 width: 100%;
 border: 1px solid yellow;
-margin: 0 0 0 50px;
-background-color: #f7f8f9;
+padding: 0 0 0 50px;
+background-color: #eff4f9;
+border: 5px solid blue; 
 
 img {
     border-radius: 50%;
@@ -29,6 +34,7 @@ const UserFunc = styled.div`
 display: flex;
 align-items: flex-start;
 align-content: center;
+justify-content: space-around;
 
 `
 
@@ -36,14 +42,38 @@ const EditButton = styled.div`
 button {
     font-weight: bold;
     font-size:
-    height: 40px;
-    width: 100px;
-    background-color: #f7f8f9;
+    height: 75px;
+    width: 125px;
+    background-color: #eff4f9;
+    margin: 0 0 75px 25px;
+    border-radius: 3px;
+}
+button:hover {
+    cursor:pointer;
 }
 align-self:center;
 `
+const DeleteButton = styled.div`
+button {
+    font-weight: bold;
+    font-size:
+    height: 75px;
+    width: 125px;
+    background-color: #eff4f9;
+    margin: 0 0 75px 25px;
+    border-radius: 3px;
+}
+button:hover {
+    cursor: pointer;
+}
+align-self: center;
+`
+
+
 const NameDiv = styled.div`
 align-self: center;
+margin: 0 0 75px 25px;
+
 
 `
 
@@ -105,17 +135,19 @@ class UserPage extends Component {
                         <EditButton>
                             <button onClick={this.toggleNewForm}>Edit Profile</button>
                         </EditButton>
+                        <DeleteButton>
+                            <button onClick={this.deleteUser}>Delete User</button>
+                        </DeleteButton>
                     </UserFunc>
                 </UserInfo>
                 {this.state.newForm ? <UpdateUserForm userId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentUser={this.getCurrentUser} /> : null}
                 <PostContainer>
-                    i want the users recent posts here.
+                    I want the users recent posts here.
                 </PostContainer>
                 <div>
                     Rating: {this.state.user.rating}
                 </div>
                 <br />
-                <button onClick={this.deleteUser}>Delete User</button>
             </Content>
         );
     }

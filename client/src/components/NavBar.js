@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
+align-items: center;
 display: flex;
 /* flex-direction: column; */
 flex-flow: row wrap;

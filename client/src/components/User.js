@@ -4,6 +4,13 @@ import UserList from './UserList'
 import NewUserForm from './NewUserForm'
 import styled from 'styled-components'
 
+
+const Content = styled.div`
+background-color: #eff4f9;
+height: 100vh;
+
+`
+
 class User extends Component {
     state = {
         user: [],
@@ -34,7 +41,7 @@ class User extends Component {
     // }
     render() {
         return (
-            <div>
+            <Content>
 
                 <UserList user={this.state.user}/>
                 <button onClick={this.toggleShowForm}>Create New User</button>
@@ -44,7 +51,7 @@ class User extends Component {
                 <div>
                     <img src={this.state.user.image_url} alt='user picture' />
                 </div> */}
-            </div>
+            </Content>
         );
     }
 }
