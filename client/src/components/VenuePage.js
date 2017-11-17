@@ -3,6 +3,12 @@ import axios from 'axios'
 import styled from 'styled-components'
 import PostList from './PostList'
 import NavBar from './NavBar'
+import UpdateVenueForm from './UpdateVenueForm'
+import { Redirect } from 'react-router-dom'
+
+const Content = styled.div`
+margin-top:75px;
+`
 
 const Descrip = styled.div`
 border: 1px solid red;
@@ -13,11 +19,15 @@ font-size: 40px;
 font-weight: bold;
 color: red;
 `
+const Address = styled.div`
+`
 
 class VenuePage extends Component {
     state = {
         venue: {},
-        posts: []
+        posts: [],
+        newForm: false,
+        // redirect: false
     }
 
     componentWillMount() {
@@ -37,18 +47,36 @@ class VenuePage extends Component {
         console.log(response.data)
         this.setState({ posts: response.data })
     }
+    toggleNewForm = () => {
+        this.setState({ newForm: !this.state.newForm })
+    }
+    deleteVenue = async () => {
+        const id = this.props.match.params.id
+        const res = await axios.delete(`/api/venues/${id}`)
+        this.setState({ redirect: true })
+    }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={`/venues`} />
+        }
 
         return (
-            <div>
+            <Content>
 
-                <Name>{this.state.venue.name}</Name>
+                <Name>
+                    <h1>{this.state.venue.name}</h1>
+                </Name>
+                <Address>{this.state.venue.address}</Address>
                 <Descrip>{this.state.venue.description}</Descrip>
                 <PostList
                     eventId={this.props.match.params.id}
                     posts={this.state.posts} />
-            </div>
+
+                <button onClick={this.toggleNewForm}>Edit Venue</button>
+                {this.state.newForm ? <UpdateVenueForm venueId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentVenue={this.getCurrentVenue} /> : null}
+                <button onClick={this.deleteVenue}>Delete Venue</button>
+            </Content>
         );
     }
 }

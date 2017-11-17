@@ -21,7 +21,7 @@ class Api::VenuesController < ApplicationController
     end
 
     def destroy 
-        @venue = Venue.find(params[:id]).delete
+        @venue = Venue.find(params[:id]).destroy
         render status: :ok
     end
 

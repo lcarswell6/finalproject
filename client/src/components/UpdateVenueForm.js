@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-class NewUserForm extends Component {
+class UpdateVenueForm extends Component {
     state = {
         name: '',
-        image_url:'',
+        address: '',
+        dress_type:'',
+        description:'',
         rating:''
     }
 
@@ -17,14 +19,17 @@ class NewUserForm extends Component {
     }
     handleSubmit = async (event) => {
         event.preventDefault()
+        const id = this.props.userId
         const payload = {
             name: this.state.name,
-            image_url: this.state.image_url,
+            address: this.state.address,
+            dress_type: this.state.dress_type,
+            description: this.state.description,
             rating: this.state.rating
         }
-        await axios.post('/api/users', payload)
-        await this.props.getAllUsers()
-        await this.props.toggleShowForm()
+        await axios.put(`/api/venue/${id}`, payload)
+        await this.props.getCurrentVenue()
+        await this.props.toggleNewForm()
     }
     render() {
         return (
@@ -34,8 +39,16 @@ class NewUserForm extends Component {
                 <input onChange={this.handleChange} type="text" name="name" value={this.state.name}/>
             </div>
             <div>
-                <label htmlFor="image_url">Image:</label>
-                <input onChange={this.handleChange} type="text" name="image_url" value={this.state.image_url} />
+                <label htmlFor="address">Address:</label>
+                <input onChange={this.handleChange} type="text" name="address" value={this.state.address} />
+            </div>
+            <div>
+                <label htmlFor="dress_type">Dress Type:</label>
+                <input onChange={this.handleChange} type="text" name="dress_type" value={this.state.dress_type} />
+            </div>
+            <div>
+                <label htmlFor="description">Description:</label>
+                <textarea onChange={this.handleChange} type="text" name="description" value={this.state.description} />
             </div>
             <div>
                 <label htmlFor="rating"> Rating: </label>
@@ -47,4 +60,4 @@ class NewUserForm extends Component {
     }
 }
 
-export default NewUserForm;
+export default UpdateVenueForm;

@@ -35,13 +35,13 @@ class UpdateUserForm extends Component {
                 <input onChange={this.handleChange} type="text" name="name" value={this.state.name}/>
             </div>
             <div>
-                <label htmlFor="image_url">Image URL:</label>
+                <label htmlFor="image_url">Image:</label>
                 <input onChange={this.handleChange} type="text" name="image_url" value={this.state.image_url} />
             </div>
-            <div>
+            {/* <div>
                 <label htmlFor="rating"> Rating: </label>
                 <input onChange={this.handleChange} type="integer" name="rating" value={this.state.rating}/>
-            </div>
+            </div> */}
             <button>Submit</button>
             </form>
         );

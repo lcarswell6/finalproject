@@ -10,21 +10,43 @@ margin-top:75px;
 `
 const UserInfo = styled.div`
 display: flex;
-flex-direction: right;
 height: 250px;
 width: 100%;
 border: 1px solid yellow;
-margin: 0 auto;
+margin: 0 0 0 50px;
 background-color: #f7f8f9;
 
 img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    position: relative; 
+    display: flex;
+    align-self: center;
+
 }
+`
+const UserFunc = styled.div`
+display: flex;
+align-items: flex-start;
+align-content: center;
 
 `
+
+const EditButton = styled.div`
+button {
+    font-weight: bold;
+    font-size:
+    height: 40px;
+    width: 100px;
+    background-color: #f7f8f9;
+}
+align-self:center;
+`
+const NameDiv = styled.div`
+align-self: center;
+
+`
+
 const PostContainer = styled.div`
 display: flex;
 align-items: baseline;
@@ -35,18 +57,6 @@ const PicPostContainer = styled.div`
 border: 1px solid blue;
 `
 
-const EditButton = styled.div`
-button {
-    font-weight: bold;
-    height: 25px;
-    width: 100px;
-    background-color: #f7f8f9;
-}
-`
-
-const NameDiv = styled.div`
-font-size:25px;
-`
 class UserPage extends Component {
     state = {
         user: {},
@@ -88,22 +98,24 @@ class UserPage extends Component {
             <Content>
                 <UserInfo>
                     <img src={this.state.user.image_url} />
-                    <NameDiv>
-                        {this.state.user.name}
-                    </NameDiv>
-                    <EditButton>
-                        <button onClick={this.toggleNewForm}>Edit Profile</button>
-                    </EditButton>
+                    <UserFunc>
+                        <NameDiv>
+                            <h1>{this.state.user.name}</h1>
+                        </NameDiv>
+                        <EditButton>
+                            <button onClick={this.toggleNewForm}>Edit Profile</button>
+                        </EditButton>
+                    </UserFunc>
                 </UserInfo>
+                {this.state.newForm ? <UpdateUserForm userId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentUser={this.getCurrentUser} /> : null}
                 <PostContainer>
                     i want the users recent posts here.
-                    </PostContainer>
+                </PostContainer>
                 <div>
                     Rating: {this.state.user.rating}
                 </div>
                 <br />
                 <button onClick={this.deleteUser}>Delete User</button>
-                {this.state.newForm ? <UpdateUserForm userId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentUser={this.getCurrentUser} /> : null}
             </Content>
         );
     }

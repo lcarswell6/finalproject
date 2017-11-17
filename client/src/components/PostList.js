@@ -6,7 +6,7 @@ const PostList = (props) => {
         <div>
             <h1>Venue Posts</h1>
             {
-                props.posts.map((post) => {
+            props.posts.map((post) => {
                     return (
                         <div>
                             <Link to={`/venues/${props.eventId}/posts/${post.id}`}>{post.title}</Link>
