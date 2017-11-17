@@ -72,7 +72,7 @@ align-self: center;
 
 const NameDiv = styled.div`
 align-self: center;
-margin: 0 0 75px 25px;
+margin: 0 0 75px 75px;
 
 
 `

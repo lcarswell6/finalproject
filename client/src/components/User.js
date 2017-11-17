@@ -8,7 +8,22 @@ import styled from 'styled-components'
 const Content = styled.div`
 background-color: #eff4f9;
 height: 100vh;
+`
 
+const CreateButton = styled.div`
+button {
+    font-weight: bold;
+    font-size:
+    height: 75px;
+    width: 125px;
+    background-color: #eff4f9;
+    margin: 0 0 75px 25px;
+    border-radius: 3px;
+}
+button:hover {
+    cursor:pointer;
+}
+align-self:center;
 `
 
 class User extends Component {
@@ -44,7 +59,10 @@ class User extends Component {
             <Content>
 
                 <UserList user={this.state.user}/>
+                
+                <CreateButton>
                 <button onClick={this.toggleShowForm}>Create New User</button>
+                </CreateButton>
 
                 {this.state.newForm ? <NewUserForm toggleShowForm={this.toggleShowForm} getAllUsers={this.getAllUsers}/> : null}
                 {/* <h1>{this.state.user.name}</h1>
