@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import UserList from './UserList'
 import NewUserForm from './NewUserForm'
+import styled from 'styled-components'
 
 class User extends Component {
     state = {

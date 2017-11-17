@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import VenueList from './VenueList'
 import styled from 'styled-components'
+import VenueList from './VenueList'
 import NewVenueForm from './NewVenueForm'
 
 
