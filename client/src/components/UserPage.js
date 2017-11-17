@@ -5,21 +5,21 @@ import UpdateUserForm from './UpdateUserForm'
 import { Redirect } from 'react-router-dom'
 
 const Content = styled.div`
+font-family: 'Spectral SC', serif;
 height: 100vh;
 width: 100%;
-border: 1px solid green;
 margin-top:75px;
 background-color: #eff4f9;
-
 `
+
 const UserInfo = styled.div`
+font-family: 'Spectral SC', serif;
 display: flex;
 height: 250px;
 width: 100%;
-border: 1px solid yellow;
 padding: 0 0 0 50px;
 background-color: #eff4f9;
-border: 5px solid blue; 
+
 
 img {
     border-radius: 50%;
@@ -35,7 +35,6 @@ display: flex;
 align-items: flex-start;
 align-content: center;
 justify-content: space-around;
-
 `
 
 const EditButton = styled.div`
@@ -69,22 +68,23 @@ button:hover {
 align-self: center;
 `
 
+const RateDiv = styled.div`
+
+`
 
 const NameDiv = styled.div`
 align-self: center;
 margin: 0 0 75px 75px;
-
-
 `
 
 const PostContainer = styled.div`
 display: flex;
 align-items: baseline;
-border: 1px solid black;
+justify-content: center;
 `
 
 const PicPostContainer = styled.div`
-border: 1px solid blue;
+
 `
 
 class UserPage extends Component {
@@ -117,9 +117,6 @@ class UserPage extends Component {
 
     }
 
-
-
-
     render() {
         if (this.state.redirect) {
             return <Redirect to={`/users`} />
@@ -128,6 +125,9 @@ class UserPage extends Component {
             <Content>
                 <UserInfo>
                     <img src={this.state.user.image_url} />
+                    <RateDiv>
+                        Rating: {this.state.user.rating}
+                    </RateDiv>
                     <UserFunc>
                         <NameDiv>
                             <h1>{this.state.user.name}</h1>
@@ -141,12 +141,11 @@ class UserPage extends Component {
                     </UserFunc>
                 </UserInfo>
                 {this.state.newForm ? <UpdateUserForm userId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentUser={this.getCurrentUser} /> : null}
+
+                <hr/>
                 <PostContainer>
                     I want the users recent posts here.
                 </PostContainer>
-                <div>
-                    Rating: {this.state.user.rating}
-                </div>
                 <br />
             </Content>
         );

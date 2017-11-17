@@ -7,9 +7,9 @@ import UpdateVenueForm from './UpdateVenueForm'
 import { Redirect } from 'react-router-dom'
 
 const Content = styled.div`
+font-family: 'Spectral SC', serif;
 margin-top:75px;
 `
-
 const Descrip = styled.div`
 border: 1px solid red;
 padding: 10px;
@@ -20,6 +20,43 @@ font-weight: bold;
 color: red;
 `
 const Address = styled.div`
+`
+const ButtonDiv = styled.div`
+display:flex;
+justify-content: center;
+border: 1px solid red;
+
+`
+
+const EditButton = styled.div`
+button {
+    font-weight: bold;
+    font-size:
+    height: 75px;
+    width: 125px;
+    background-color: #eff4f9;
+    margin: 0 0 75px 25px;
+    border-radius: 3px;
+}
+button:hover {
+    cursor:pointer;
+}
+align-self:center;
+`
+const DeleteButton = styled.div`
+button {
+    font-weight: bold;
+    font-size:
+    height: 75px;
+    width: 125px;
+    background-color: #eff4f9;
+    margin: 0 0 75px 25px;
+    border-radius: 3px;
+}
+button:hover {
+    cursor:pointer;
+}
+align-self:center;
 `
 
 class VenuePage extends Component {
@@ -63,7 +100,6 @@ class VenuePage extends Component {
 
         return (
             <Content>
-
                 <Name>
                     <h1>{this.state.venue.name}</h1>
                 </Name>
@@ -72,10 +108,15 @@ class VenuePage extends Component {
                 <PostList
                     eventId={this.props.match.params.id}
                     posts={this.state.posts} />
-
-                <button onClick={this.toggleNewForm}>Edit Venue</button>
-                {this.state.newForm ? <UpdateVenueForm venueId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentVenue={this.getCurrentVenue} /> : null}
-                <button onClick={this.deleteVenue}>Delete Venue</button>
+                <ButtonDiv>
+                    <EditButton>
+                        <button onClick={this.toggleNewForm}>Edit Venue</button>
+                    </EditButton>
+                    {this.state.newForm ? <UpdateVenueForm venueId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentVenue={this.getCurrentVenue} /> : null}
+                    <DeleteButton>
+                        <button onClick={this.deleteVenue}>Delete Venue</button>
+                    </DeleteButton>
+                </ButtonDiv>
             </Content>
         );
     }

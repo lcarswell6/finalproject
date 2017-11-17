@@ -3,9 +3,13 @@ import axios from 'axios'
 import PostList from './PostList'
 import styled from 'styled-components'
 
-
+const Content = styled.div`
+margin-top: 75px;
+font-family: 'Spectral SC', serif;
+`
 
 const Wiw = styled.div`
+font-family: 'Spectral SC', serif;
 font-size: 40px;
 font-weight: bold;
 font-style: italic;
@@ -17,8 +21,6 @@ display:flex;
 justify-content:center;
 align-items: center;
 overflow:hidden;
-
-
 img {
     flex-shrink: 0;
     max-width: 300px;
@@ -26,8 +28,6 @@ img {
     /* min-width:100%;
     min-height:100%; */
 };
-
-
 `
 
 class Post extends Component {
@@ -46,16 +46,13 @@ class Post extends Component {
 
     render() {
         return (
-            <div>
+            <Content>
                 <h3>
                     {this.state.post.title}
                 </h3>
                 <h4>
                     Event: {this.state.post.event}
                 </h4>
-                <div>
-                    {this.state.post.description}
-                </div>
                 <Wiw>
                     What I wore:
                 </Wiw>
@@ -63,9 +60,12 @@ class Post extends Component {
                     <img src={this.state.post.image_url} />
                 </Pic>
                 <div>
+                    {this.state.post.description}
+                </div>
+                <div>
                     Rating:{this.state.post.rating}
                 </div>
-            </div>
+            </Content>
         );
     }
 }

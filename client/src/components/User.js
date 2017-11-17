@@ -4,10 +4,23 @@ import UserList from './UserList'
 import NewUserForm from './NewUserForm'
 import styled from 'styled-components'
 
+const Links = styled.div`
+
+a {
+    font-size: 30px;
+    text-decoration: none;
+    font-family: 'Spectral SC', serif;
+    color: #1a4b9b;
+
+}
+`
 
 const Content = styled.div`
 background-color: #eff4f9;
 height: 100vh;
+`
+
+const FormCont = styled.div`
 `
 
 const CreateButton = styled.div`
@@ -31,7 +44,7 @@ class User extends Component {
         user: [],
         posts: [],
         newForm: false
-        }
+    }
 
     componentWillMount() {
         this.getAllUsers()
@@ -43,7 +56,7 @@ class User extends Component {
     }
 
     toggleShowForm = () => {
-        this.setState({newForm: !this.state.newForm})
+        this.setState({ newForm: !this.state.newForm })
     }
     // try {
     //     const { userId } = this.props.match.params.userId
@@ -57,14 +70,16 @@ class User extends Component {
     render() {
         return (
             <Content>
+                <Links>
+                    <UserList user={this.state.user} />
+                </Links>
 
-                <UserList user={this.state.user}/>
-                
                 <CreateButton>
-                <button onClick={this.toggleShowForm}>Create New User</button>
+                    <button onClick={this.toggleShowForm}>Create New User</button>
                 </CreateButton>
-
-                {this.state.newForm ? <NewUserForm toggleShowForm={this.toggleShowForm} getAllUsers={this.getAllUsers}/> : null}
+                <FormCont>
+                    {this.state.newForm ? <NewUserForm toggleShowForm={this.toggleShowForm} getAllUsers={this.getAllUsers} /> : null}
+                </FormCont>
                 {/* <h1>{this.state.user.name}</h1>
                 <div>
                     <img src={this.state.user.image_url} alt='user picture' />
