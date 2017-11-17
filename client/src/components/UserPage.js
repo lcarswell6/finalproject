@@ -4,17 +4,24 @@ import styled from 'styled-components'
 import UpdateUserForm from './UpdateUserForm'
 import { Redirect } from 'react-router-dom'
 
-
-const Pic = styled.div`
+const Content = styled.div`
+border: 1px solid green;
+margin-top:75px;
+`
+const UserInfo = styled.div`
 display: flex;
 flex-direction: right;
-border: 1px solid black;
-box-shadow: ;
-width: relative;
-max-width: 300px;
+height: 250px;
+width: 100%;
+border: 1px solid yellow;
+margin: 0 auto;
+background-color: #f7f8f9;
+
 img {
-    max-width:300px;
-    max-height: 300px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: relative; 
 }
 
 `
@@ -25,9 +32,20 @@ border: 1px solid black;
 `
 
 const PicPostContainer = styled.div`
-display:flex;
-flex-direction: right
+border: 1px solid blue;
+`
 
+const EditButton = styled.div`
+button {
+    font-weight: bold;
+    height: 25px;
+    width: 100px;
+    background-color: #f7f8f9;
+}
+`
+
+const NameDiv = styled.div`
+font-size:25px;
 `
 class UserPage extends Component {
     state = {
@@ -67,25 +85,26 @@ class UserPage extends Component {
             return <Redirect to={`/users`} />
         }
         return (
-            <div>
-                {this.state.user.name}
-                <PicPostContainer>
-
-                <Pic>
+            <Content>
+                <UserInfo>
                     <img src={this.state.user.image_url} />
-                </Pic>
+                    <NameDiv>
+                        {this.state.user.name}
+                    </NameDiv>
+                    <EditButton>
+                        <button onClick={this.toggleNewForm}>Edit Profile</button>
+                    </EditButton>
+                </UserInfo>
                 <PostContainer>
                     i want the users recent posts here.
-                </PostContainer>
-                </PicPostContainer>
+                    </PostContainer>
                 <div>
                     Rating: {this.state.user.rating}
                 </div>
-                <button onClick={this.toggleNewForm}>Edit User</button>
                 <br />
                 <button onClick={this.deleteUser}>Delete User</button>
                 {this.state.newForm ? <UpdateUserForm userId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentUser={this.getCurrentUser} /> : null}
-            </div>
+            </Content>
         );
     }
 }

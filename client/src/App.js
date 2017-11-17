@@ -1,6 +1,6 @@
 import './App.css'
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch,  Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios'
 import styled from 'styled-components'
 import NavBar from './components/NavBar'
@@ -19,18 +19,15 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        <NavBar />
-          <div>
-            <h1>Dressed Yet?</h1>
-          </div>
-<Switch>
+          <NavBar />
 
-          <Route exact path="/users" component={User} />
-          <Route exact path="/users/:id" component={UserPage} />
-          <Route exact path="/venues" component={Venue} />
-          <Route exact path="/venues/:id" component={VenuePage} />
-          <Route exact path="/venues/:venue_id/posts/:id" component={Post} />
-</Switch>
+          <Switch>
+            <Route exact path="/users" component={User} />
+            <Route exact path="/users/:id" component={UserPage} />
+            <Route exact path="/venues" component={Venue} />
+            <Route exact path="/venues/:id" component={VenuePage} />
+            <Route exact path="/venues/:venue_id/posts/:id" component={Post} />
+          </Switch>
 
 
 
