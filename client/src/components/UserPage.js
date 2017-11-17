@@ -125,9 +125,6 @@ class UserPage extends Component {
             <Content>
                 <UserInfo>
                     <img src={this.state.user.image_url} />
-                    <RateDiv>
-                        Rating: {this.state.user.rating}
-                    </RateDiv>
                     <UserFunc>
                         <NameDiv>
                             <h1>{this.state.user.name}</h1>
@@ -141,10 +138,13 @@ class UserPage extends Component {
                     </UserFunc>
                 </UserInfo>
                 {this.state.newForm ? <UpdateUserForm userId={this.props.match.params.id} toggleNewForm={this.toggleNewForm} getCurrentUser={this.getCurrentUser} /> : null}
+                    <RateDiv>
+                        Rating: {this.state.user.rating}
+                    </RateDiv>
 
                 <hr/>
                 <PostContainer>
-                    I want the users recent posts here.
+                    Recent Posts 
                 </PostContainer>
                 <br />
             </Content>

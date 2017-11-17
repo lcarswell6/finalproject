@@ -12,6 +12,7 @@ import VenueList from './components/VenueList'
 import VenuePage from './components/VenuePage'
 import Post from './components/Post'
 import PostList from './components/PostList'
+import HomePage from './components/HomePage'
 
 
 class App extends Component {
@@ -20,17 +21,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar />
-
           <Switch>
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/users" component={User} />
             <Route exact path="/users/:id" component={UserPage} />
             <Route exact path="/venues" component={Venue} />
             <Route exact path="/venues/:id" component={VenuePage} />
             <Route exact path="/venues/:venue_id/posts/:id" component={Post} />
           </Switch>
-
-
-
         </div>
       </Router>
     );
