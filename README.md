@@ -1,9 +1,13 @@
-# README
+WIREFRAMES : https://lcars.mybalsamiq.com/projects/finalproject/grid
+(should be public to view)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+User Stories (brought to you by trello):
+https://trello.com/b/ugLzBUA0/final-ject
 
-Things you may want to cover:
+ERD: https://i.imgur.com/zMfclPM.jpg
+
+
+
 
 * Ruby version
 
