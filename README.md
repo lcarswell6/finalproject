@@ -6,7 +6,7 @@ https://trello.com/b/ugLzBUA0/final-ject
 
 ERD: https://i.imgur.com/zMfclPM.jpg
 
-
+heroku: https://dressedyet-re-rail.herokuapp.com/
 
 
 * Ruby version
